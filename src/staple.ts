@@ -12,7 +12,7 @@ export async function stapleApp(opts: NotarizeStapleOptions): Promise<void> {
     cwd: path.dirname(opts.appPath),
   });
 
-  if (result.code !== 0) {
+  if (result.code !== 0 && result.code !== 65) {
     throw new Error(
       `Failed to staple your application with code: ${result.code}\n\n${result.output}`,
     );
